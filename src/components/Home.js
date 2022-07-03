@@ -4,8 +4,8 @@ import { useState } from "react";
 function Home() {
   const [output, setOutput] = useState("");
   const result = (e) => {
-    console.log(`${output} ${e.target.name}`);
-    setOutput(`${output} ${e.target.name}`);
+    console.log(`${output}${e.target.name}`);
+    setOutput(`${output}${e.target.name}`);
   };
   const cancel=()=>{
     setOutput("")
@@ -15,20 +15,26 @@ function Home() {
    setOutput(value) 
   }
   const equalto=()=>{
-    setOutput()
+    let total=eval(output)
+    setOutput(total)
+  }
+  const [checked,setChecked]=useState(false)
+  const handleOnchange=()=>{
+    setChecked(!checked)
   }
   return (
     <div className="Home">
-      <div className="container">
+      <div className={checked?"container black":"container white"} >
         <p className="input">{output}</p>
         <div className="table">
-          <div className="lastcol ">
+          <div className="lastcol sameline ">
             <button name="C" onClick={cancel} className="yellow">
               C
             </button>
-            <label class="switch">
-  <input type="checkbox"/>
-  <span class="slider round"></span>
+            <label className="switch">
+              
+  <input type="checkbox" checked={checked} onChange={handleOnchange}/>
+   <span className="slider round"></span>
 </label>
             
           </div>

@@ -41,6 +41,7 @@ button {
 }
 .yellow {
   background-color: #f2c54e;
+  color: white;
 }
 .light-yellow {
   background-color: #f3ede3;
@@ -51,13 +52,18 @@ button {
 }
 .purple {
   background-color: #872edc;
+  color: white;
 }
 .white {
   background-color: #fcfbfc;
+  
 }
+
 .black {
   background-color: #3f4444;
+  
 }
+
 .switch {
   position: relative;
   display: inline-block;
@@ -118,4 +124,9 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+.sameline{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
