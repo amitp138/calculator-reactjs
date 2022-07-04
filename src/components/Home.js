@@ -7,36 +7,38 @@ function Home() {
     console.log(`${output}${e.target.name}`);
     setOutput(`${output}${e.target.name}`);
   };
-  const cancel=()=>{
-    setOutput("")
-  }
-  const backspace=()=>{
-    let value=output.slice(0,output.length-1)
-   setOutput(value) 
-  }
-  const equalto=()=>{
-    let total=eval(output)
-    setOutput(total)
-  }
-  const [checked,setChecked]=useState(false)
-  const handleOnchange=()=>{
-    setChecked(!checked)
-  }
+  const cancel = () => {
+    setOutput("");
+  };
+  const backspace = () => {
+    let value = output.slice(0, output.length - 1);
+    setOutput(value);
+  };
+  const equalto = () => {
+    let total = eval(output);
+    setOutput(total);
+  };
+  const [checked, setChecked] = useState(false);
+  const handleOnchange = () => {
+    setChecked(!checked);
+  };
   return (
     <div className="Home">
-      <div className={checked?"container black":"container white"} >
-        <p className="input">{output}</p>
+      <div className={checked ? "container black" : "container white"}>
+        <input className="input" value={output} onChange={handleOnchange}/>
         <div className="table">
           <div className="lastcol sameline ">
             <button name="C" onClick={cancel} className="yellow">
               C
             </button>
             <label className="switch">
-              
-  <input type="checkbox" checked={checked} onChange={handleOnchange}/>
-   <span className="slider round"></span>
-</label>
-            
+              <input
+                type="checkbox"
+                checked={checked}
+                onChange={handleOnchange}
+              />
+              <span className="slider round"></span>
+            </label>
           </div>
           <div className="lastcol">
             <button name="/" onClick={result} className="light-yellow">
@@ -49,8 +51,8 @@ function Home() {
               %
             </button>
             <button name="X" onClick={backspace}>
-                  X
-                </button>
+              X
+            </button>
           </div>
           <div className="lastcol">
             <button name="7" onClick={result}>
